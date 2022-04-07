@@ -1,4 +1,4 @@
-for ns in $( kubectl get ns | awk '{if (NR>2){print $1}}' |grep 'abc\|xtest')
+for ns in $( kubectl get ns | awk '{if (NR>1){print $1}}' |grep 'abc\|xtest')
 do
   echo $ns
   sed "s/namespace: default/namespace: $ns/g"  defaultrole.yaml > /tmp/role.yaml
